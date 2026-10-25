@@ -1,0 +1,32 @@
+[
+  {
+    "title": "The Day the Cafeteria Went Wild",
+    "category": "School",
+    "template_text": "On Monday morning, our teacher, Mr. {name}, walked into class with a {adjective} {noun} on his head. 'Today,' he announced, 'we will learn how to {verb} like a {animal}.' Everyone {verb past tense} in surprise.\n\nBy lunchtime, the cafeteria smelled like burnt {food}. A {adjective} lunch lady handed me a tray of {plural noun} and whispered, 'Eat fast, or the {noun} will {verb} you.' I felt {emotion}, but I took one bite anyway.\n\nThe best part? The principal declared a {adjective} holiday, and we all {verb past tense} {adverb} all the way home."
+  },
+  {
+    "title": "Midnight at the Haunted Library",
+    "category": "Spooky",
+    "template_text": "The old library on {silly word} Street had been closed for {number} years, but tonight a {adjective} light flickered in the window. I grabbed my {noun} and tiptoed inside.\n\nThe shelves creaked. Somewhere in the dark, a ghost was {verb ending in ing} and humming a song about {plural noun}. 'Who goes there?' I whispered {adverb}.\n\nThe ghost floated out, wearing a {color} cape, and said in a voice like a {animal}, 'Finally, someone brave enough to return my overdue {noun}!' I felt so {emotion} that I forgot to run. We became best friends, and now every Friday we {verb} together."
+  },
+  {
+    "title": "My Disastrous Cooking Show",
+    "category": "Funny",
+    "template_text": "Welcome back to Cooking with {name}! Today's recipe is {adjective} {food} soup, and I promise it's easy.\n\nFirst, chop {number} {plural noun} into tiny pieces. Next, pour in a cup of {liquid} and stir with a {noun} until it starts to {verb}. If the pot begins {verb ending in ing}, don't panic. That's just the {adjective} part working.\n\nFinally, sprinkle on some {silly word} for flavor and serve it {adverb}. My neighbor took one taste and shouted, '{exclamation}!' Five stars."
+  },
+  {
+    "title": "Expedition to Mount Wobble",
+    "category": "Adventure",
+    "template_text": "Our expedition to Mount {silly word} began at dawn. Our guide, a {adjective} {occupation} named {name}, handed everyone a backpack full of {plural noun}.\n\nWe climbed for {number} hours until we found a {color} cave shaped like a {body part}. Inside, a {animal} was guarding a chest of {food}. I tiptoed {adverb}, but my {body part} made a {sound} so loud that the whole cave shook.\n\nWe escaped, laughing and {verb ending in ing} all the way down. Best {noun} of my life."
+  },
+  {
+    "title": "A Very Strange Monday",
+    "category": "Everyday",
+    "template_text": "I woke up feeling {emotion}. Outside my window, a {animal} was {verb ending in ing} on a {vehicle}. I decided to {verb} before breakfast, which was {number} slices of {food}.\n\nOn the way to {place}, I met a {adjective} stranger who offered me {plural noun} in exchange for my left {body part}. 'No thanks,' I said {adverb}.\n\nBy evening, the whole street was talking about it. One neighbor even called it the most {adjective} Monday in history."
+  },
+  {
+    "title": "The Dragon's Dentist Appointment",
+    "category": "Funny",
+    "template_text": "Doctor {name} the dentist was having a {adjective} day when a {color} dragon squeezed through the {room} door. 'My {body part} hurts,' the dragon groaned.\n\nThe dentist grabbed a tiny {noun} and a bottle of {liquid}. 'Open wide and say {exclamation},' she said. The dragon {verb past tense}, and out flew {number} {plural noun}!\n\n'You had {food} stuck in there,' she laughed. The dragon felt {emotion} and gave her a {adjective} hug. Now every dragon in town brushes with {silly word} toothpaste."
+  }
+]
