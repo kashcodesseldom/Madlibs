@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Today an <span class="blank">adjective</span> <span class="blank">animal</span> learned to <span class="blank">verb</span>.</h1>
+  <p class="lede">Pick a story, give it a few words, and see what comes out.</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="{{ url_for('pages.random_story') }}">Surprise me</a>
+    <a class="btn btn-ghost" href="{{ url_for('pages.create') }}">Write your own</a>
+  </div>
+</section>
+
+<nav class="filters" aria-label="Story categories">
+  <a class="chip{% if not selected %} active{% endif %}" href="{{ url_for('pages.index') }}"{% if not selected %} aria-current="page"{% endif %}>All</a>
+  {% for c in categories %}
+    <a class="chip{% if c == selected %} active{% endif %}" href="{{ url_for('pages.index', category=c) }}"{% if c == selected %} aria-current="page"{% endif %}>{{ c }}</a>
+  {% endfor %}
+</nav>
+
+{% if stories %}
+<section class="grid" aria-label="Stories">
+  {% for story in stories %}
+  <a class="glass card" href="{{ url_for('pages.play', story_id=story.id) }}">
+    <span class="tag">{{ story.category }}</span>
+    <h2>{{ story.title }}</h2>
+    <p>{{ story.teaser }}</p>
+    <span class="meta">{{ story.blank_count }} blanks to fill</span>
+  </a>
+  {% endfor %}
+</section>
+{% else %}
+<section class="glass panel notice">
+  <h2>No stories here yet</h2>
+  <p>Write the first one for this category.</p>
+  <a class="btn btn-primary" href="{{ url_for('pages.create') }}">Write a story</a>
+</section>
+{% endif %}
+{% endblock %}

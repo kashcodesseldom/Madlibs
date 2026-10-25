@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ story.title }} | Madlib Game{% endblock %}
+{% block content %}
+<div class="play-layout"
+     data-submit-url="{{ url_for('api.submit', story_id=story.id) }}"
+     data-total="{{ story.blank_count }}">
+
+  <section class="glass panel form-panel">
+    <span class="tag">{{ story.category }}</span>
+    <h1>{{ story.title }}</h1>
+
+    <div class="progress" role="progressbar" aria-label="Words filled" aria-valuemin="0" aria-valuemax="{{ story.blank_count }}" aria-valuenow="0">
+      <div class="progress-bar" data-progress></div>
+    </div>
+    <p class="progress-label" data-progress-label aria-live="polite">0 of {{ story.blank_count }} words filled</p>
+
+    <form id="play-form" novalidate>
+      {% for label in story.blanks %}
+      <div class="field">
+        <label for="blank-{{ loop.index0 }}">{{ label|capitalize }}</label>
+        <div class="input-row">
+          <input id="blank-{{ loop.index0 }}" name="answer" type="text" data-label="{{ label }}"
+                 maxlength="{{ max_len }}" autocomplete="off" placeholder="Type your word">
+          <button type="button" class="dice" data-random aria-label="Suggest a random {{ label }}">🎲</button>
+        </div>
+        <p class="field-error" role="alert"></p>
+      </div>
+      {% endfor %}
+
+      <p class="form-error" role="alert" data-form-error></p>
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" data-fill-random>Fill the empty ones for me</button>
+        <button type="submit" class="btn btn-primary">Read my story</button>
+      </div>
+    </form>
+    <noscript><p class="form-error">This page needs JavaScript to send your words.</p></noscript>
+  </section>
+
+  <aside class="glass panel preview-panel" aria-label="Story preview">
+    <h2>Your story so far</h2>
+    <p class="story-text" data-preview>
+{%- for s in segments -%}
+{%- if s.kind == "text" -%}{{ s.text }}
+{%- elif s.kind == "article" -%}<span data-article="{{ segments[loop.index0 + 2].index }}">{{ s.text }}</span>
+{%- else -%}<span class="blank" data-blank="{{ s.index }}" data-label="{{ s.label }}">{{ s.label }}</span>
+{%- endif -%}
+{%- endfor -%}
+    </p>
+  </aside>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/play.js') }}" defer></script>{% endblock %}
