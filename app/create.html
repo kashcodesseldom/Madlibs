@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Write a story | Madlib Game{% endblock %}
+{% block content %}
+<section class="glass panel create-panel">
+  <h1>Write your own story</h1>
+  <p class="lede">Put each blank in curly braces, like {adjective} or {plural noun}. Players fill in exactly those words, in order.</p>
+
+  {% if errors %}
+  <div class="form-error" role="alert">
+    <p>Fix these and try again:</p>
+    <ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>
+  </div>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('pages.create') }}">
+    <div class="field">
+      <label for="title">Title</label>
+      <input id="title" name="title" type="text" maxlength="120" value="{{ form.title }}" required>
+    </div>
+    <div class="field">
+      <label for="category">Category</label>
+      <input id="category" name="category" type="text" maxlength="40" list="category-list" value="{{ form.category }}" placeholder="Everyday">
+      <datalist id="category-list">{% for c in categories %}<option value="{{ c }}">{% endfor %}</datalist>
+    </div>
+    <div class="field">
+      <label for="template_text">Story</label>
+      <textarea id="template_text" name="template_text" rows="9" required placeholder="Yesterday I met a {adjective} {animal} who loved to {verb}...">{{ form.template_text }}</textarea>
+      <p class="hint">Write "a {adjective}" and we switch it to "an" when the word needs it. Use at least 3 blanks.</p>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn btn-primary">Add story</button>
+      <a class="btn btn-ghost" href="{{ url_for('pages.index') }}">Cancel</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

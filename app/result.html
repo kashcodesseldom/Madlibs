@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ story.title }} | Madlib Game{% endblock %}
+{% block content %}
+<article class="glass panel result" data-result>
+  <span class="tag">{{ story.category }}</span>
+  <h1>{{ story.title }}</h1>
+
+  <p class="story-text story-final">
+{%- for s in segments -%}
+{%- if s.kind == "blank" -%}<mark class="word">{{ s.value }}</mark>
+{%- else -%}{{ s.text }}
+{%- endif -%}
+{%- endfor -%}
+  </p>
+
+  <div class="actions">
+    <button type="button" class="btn btn-primary" data-copy-link data-url="{{ url_for('pages.result', slug=submission.slug, _external=True) }}">Copy share link</button>
+    <a class="btn btn-ghost" href="{{ url_for('pages.play', story_id=story.id) }}">Play this story again</a>
+    <a class="btn btn-ghost" href="{{ url_for('pages.index') }}">Pick another story</a>
+  </div>
+  <p class="copy-status" data-copy-status aria-live="polite"></p>
+</article>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/result.js') }}" defer></script>{% endblock %}
